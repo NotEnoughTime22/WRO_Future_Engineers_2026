@@ -51,13 +51,14 @@ This repository contains engineering materials of SSTactical's self-driven vehic
  
 ## Components Used
    1. Microcontroller -- EvolutionX1, ESP32S3 **(x1)**
-   2. Motors -- EV3 Medium Motors **(x2)**
-   3. Camera -- HuskyLens **(x1)**
+   2. Motors -- EvoMotor300 **(x1)**
+   3. Camera -- MaixCam **(x1)**
    4. Distance Sensor -- Time of Flight, VL53LOX **(x3)**
    5. Compass -- IMU, BNO055 **(x1)**
    6. I2C Multiplexor -- TCA9548A **(x1)**
    7. IO Multiiplexor -- SX1506 **(x1)**
    8. Battery -- NCR18650B **(x2)**
+   9. Steering Motor -- GeekServo360Grey **(x1)**
 
 
 
