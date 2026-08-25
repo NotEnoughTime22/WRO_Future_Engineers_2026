@@ -9,7 +9,7 @@ This repository contains engineering materials of SSTactical's self-driven vehic
 * `Photos` contains 2 folder holding photos of the team and the vehicle.
    * `Team` ----- contains one photo of the team (an official one with all team members)
    * `Vehicle` ----- contains 2 folders of the vehicle at different stages (from every side, from top and bottom)
-       ~ `First Prototype` ----- contains 9 images of the first prototype chassis
+       * `First Prototype` ----- contains 9 images of the first prototype chassis
         - `Back side of first prototype chassis.jpeg` contains 1 photo of the back view of the first prototype chassis
         - `Bottom side of unfinished first prototype.jpeg` contains 1 photo of the bottom view of the unfinished first prototype chassis
         - `Comparison of first and second(Unfinished) chassis.jpeg` contains 1 photo of the comparision between the first and second prototype chassis
