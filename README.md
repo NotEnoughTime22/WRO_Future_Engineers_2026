@@ -18,6 +18,12 @@ This repository contains engineering materials of SSTactical's self-driven vehic
           - `Right side of first prototype chassis.jpeg` contains 1 photo of the right view of the first prototype chassis
           - `Right side of unfinished first prototype chassis.jpeg` contains 1 photo of the right view of the unfinished first prototype chassis
           - `Top-right side of unfinished first prototype chassis.jpeg` contains 1 photo of the top-right view of the unfinished first prototype
+        
+  * `ML` contains several files relating to our visual machine learning model
+      - `Training` contains 2 folders and 1 file for training the model.
+          - `annotations` contains 147 annotations for the VML
+          - `images` contains 147 images for the VML
+          - `train.txt` contains a list of all of the required files for training the VML
   * `Schemes` contains several schematic diagrams in the form of JPEG, PNG or PDF of the electromechanical components illustrating all the elements (electronic components and motors) used in the vehicle and how they connect to each other.
    * `Microcontroller Wiring Diagram.png` contains a photo of our Microcontroller System Diagram.
    * `Overall System Wiring Diagram.png` contains a photo of our Overall System Wiring Diagram.
