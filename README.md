@@ -4,13 +4,13 @@ This repository contains the complete engineering materials for SSTactical's sel
 
 ## Repository Structure
 
-* `Codes/` contains the Arduino sketch that runs on the EvolutionX1 microcontroller. The file `Open_Code.ino` implements the primary autonomous driving logic including PD heading control, gap navigation, square traversal, and parallel parking.
-* `Documents/` contains the Engineering Journal maintained by the team throughout the season.
+* `Codes/` contains the Arduino sketches that run on the EvolutionX1 microcontroller. `Open_Code.ino` implements the primary autonomous driving logic including PD heading control, gap navigation, square traversal, and parallel parking. `Obstacle_code.ino` extends the gap navigation with colour-based obstacle avoidance using MaixCam detections.
+* `Documents/` contains the official WRO Engineering Journal (PDF) maintained by the team throughout the season, documenting design decisions, testing results, and progress.
 * `Libraries/` contains the custom C++ libraries written to interface with the vehicle hardware. These include motor control, sensor abstraction, pin mapping, and the core Evo system library.
 * `ML/` contains the machine learning pipeline for visual object detection running on the MaixCam. This includes the trained YOLOv5 model, the inference script, training annotations, and configuration files.
 * `Models/` contains 3D printable STL files for custom mounts and brackets used in the vehicle construction.
 * `Photos/` contains documentation photographs of the team and the vehicle at various stages of development.
-* `Videos/` contains videos of the robot performing the open and challenge runs. 
+* `Videos/` contains demonstration videos of the robot performing both the open and challenge runs of the competition. 
 
 ## Hardware Components
 
@@ -109,6 +109,23 @@ Executes a multi-phase parallel parking manoeuvre using all four ToF sensors:
 * Phase 2: The robot turns to run parallel to the wall and drives forward until the front sensor reads less than 200mm.
 * Phase 3: The robot angles 45 degrees away from the wall and drives a fixed distance of 1000 encoder degrees to pull alongside the parking spot.
 * Phase 4: The robot straightens and drives forward until the front sensor reads less than 100mm, then completes with a final 200-degree adjustment.
+
+**4. Obstacle Avoidance with Colour Detection (`driveAndTurnOnGapsWithColourAvoidance`)**
+
+The `Obstacle_code.ino` sketch extends the gap navigation system with colour-based obstacle avoidance. This mode integrates MaixCam YOLO detections with the ToF-based gap navigation to avoid coloured obstacles (green and red objects) placed on the track.
+
+The colour avoidance system uses a finite state machine with six states:
+
+* `COLOR_NONE`: Normal driving mode. The robot monitors for colour detections while performing gap navigation.
+* `COLOR_TURN_OUT`: When a coloured object is detected, the robot turns 45 degrees away from the obstacle (left for green, right for red) while continuing to drive forward.
+* `COLOR_DRIVE_OUT`: After completing the turn, the robot drives forward until the object is no longer detected for 350ms AND the robot has travelled at least 500 encoder degrees away from the obstacle.
+* `COLOR_TURN_BACK`: The robot turns 90 degrees back toward the original heading to align parallel to the track.
+* `COLOR_DRIVE_BACK`: The robot drives forward the same distance it travelled outward to return to the original path.
+* `COLOR_RETURN_HEADING`: The robot turns back to the original heading and resumes normal gap navigation.
+
+The system validates detections using three criteria: the object class must be green (ID 1) or red (ID 2), the bounding box area must exceed 100 pixels, and the confidence score must be above 0.50. Objects detected too low in the image (y-center above 160 pixels) are ignored to avoid false positives from distant obstacles.
+
+A retrigger cooldown of 1000ms prevents the robot from repeatedly avoiding the same object. The colour avoidance behaviour takes priority over gap turns, ensuring the robot always responds to obstacles before considering intersection navigation.
 
 ### MaixCam (Vision Processor)
 
