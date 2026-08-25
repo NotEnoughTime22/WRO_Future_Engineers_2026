@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<annotation>
+  <filename>0825072935_129.jpg</filename>
+  <size>
+    <width>231</width>
+    <height>416</height>
+    <depth>3</depth>
+  </size>
+  <segmented>0</segmented>
+  <object>
+    <name>green</name>
+    <truncated>0</truncated>
+    <difficult>0</difficult>
+    <occluded>0</occluded>
+    <bndbox>
+      <xmin>56</xmin>
+      <ymin>123</ymin>
+      <xmax>135</xmax>
+      <ymax>251</ymax>
+    </bndbox>
+  </object>
+</annotation>

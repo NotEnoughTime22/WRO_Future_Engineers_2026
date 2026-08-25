@@ -19,7 +19,6 @@ EvoMotor driveMotor(M1, EVOMotor300, true);
 EvoServo steerServo(SERVO1, GeekServo360Grey);
 
 
-
 // Motion settings
 const long STRAIGHT_DEGREES = 3300; // encoder degrees per edge
 const int DRIVE_SPEED = 3000; // constant drive speed
@@ -67,8 +66,8 @@ float headingError(float current, float target) {
 float snapHeading45(float a) {
     a = normalize(a);
     // Add 22.5 then integer divide by 45 to round to nearest multiple
-    int k = (int)((a + 22.5f) / 45.0f); // 0..7
-    return (float)(k * 45); // 0,45,...,315
+    int k = (int) ((a + 22.5f) / 45.0f); // 0..7
+    return (float) (k * 45); // 0,45,...,315
 }
 
 
@@ -82,7 +81,7 @@ float readHeadingSafe() {
         lastValidHeading = normalize(x);
         return lastValidHeading;
     }
-  
+
 
     // One retry
     delay(2);
@@ -98,15 +97,15 @@ float readHeadingSafe() {
 }
 
 
-void printStatus(const char* line0, const char* line1, float heading = -1000.0f) {
+void printStatus(const char *line0, const char *line1, float heading = -1000.0f) {
     evo.clearDisplay();
     evo.writeLineToDisplay(line0, 0, true, true);
     evo.writeLineToDisplay(line1, 1, true, false);
     if (heading > -999.0f) {
         evo.writeToDisplay("H:", 0, 32);
-        evo.writeToDisplay((int)heading, 20, 32);
+        evo.writeToDisplay((int) heading, 20, 32);
         evo.writeToDisplay(" T:", 60, 32);
-        evo.writeToDisplay((int)targetHeading, 85, 32);
+        evo.writeToDisplay((int) targetHeading, 85, 32);
     }
     evo.drawDisplay();
 }
@@ -123,7 +122,7 @@ void applySteering(float wheelAngle) {
     servoCmd = constrain(servoCmd, 0, 360); // GeekServo 360 range
 
 
-    steerServo.write((int)servoCmd);
+    steerServo.write((int) servoCmd);
 }
 
 
@@ -142,7 +141,7 @@ float readHeadingSafePark() {
     float x, y, z;
     bno.getEuler(&x, &y, &z);
     if (!isnan(x) && !isinf(x) && x >= 0 && x < 360)
-    return normalize(x);
+        return normalize(x);
     return targetHeading; // fall back
 }
 
@@ -261,7 +260,7 @@ void parallelParkWithTOF() {
     long rightdist = tofRight.getDistance();
 
 
-    if (rightdist > 100){
+    if (rightdist > 100) {
         // too far from wall, heading track at 45 degree offset
         targetHeading = snapHeading45(readHeadingSafe() + 45.0f);
         while (0.7071067812 * rightdist > 100) {
@@ -273,7 +272,7 @@ void parallelParkWithTOF() {
 
     // now we are close to the wall, turn parallel and track toward the perpendicular wall until we are close enough
     targetHeading = snapHeading45(readHeadingSafe() - 45.0f);
-    while(frontdist > 200) {
+    while (frontdist > 200) {
         headingTrackCoast(10, targetHeading); // small steps
         frontdist = cleanTof(tofFront.getDistance(), frontdist);
     }
@@ -390,6 +389,7 @@ void squareWithPDSteering(int sides) {
     driveMotor.brake();
     steerServo.write(SERVO_CENTER);
 }
+
 // ---------- Main behaviour: single-phase square with PD steering ----------
 
 
@@ -407,8 +407,7 @@ void setup() {
     evo.drawDisplay();
 
 
-
-    evo.playTone(1000,10,false);
+    evo.playTone(1000, 10, false);
     delay(1000);
 
 
@@ -416,9 +415,9 @@ void setup() {
     float x, y, z;
     bno.getEuler(&x, &y, &z);
     if (!isnan(x) && !isinf(x) && x >= 0 && x < 360) {
-    lastValidHeading = normalize(x);
+        lastValidHeading = normalize(x);
     } else {
-    lastValidHeading = 0.0f; // safe default
+        lastValidHeading = 0.0f; // safe default
     }
 
 
@@ -430,7 +429,7 @@ void setup() {
     evo.writeLineToDisplay("Setup done", 0, true, true);
     evo.drawDisplay();
     driveMotor.resetAngle();
-    driveMotor.runAngle(4000,1000);
+    driveMotor.runAngle(4000, 1000);
     // parallelParkWithTOF();
     squareWithPDSteering(4);
     steerServo.write(SERVO_CENTER);
@@ -447,4 +446,3 @@ void loop() {
     //evo.drawDisplay();
     //delay(10);
 }
-
