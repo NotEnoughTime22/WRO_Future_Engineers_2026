@@ -10,6 +10,7 @@ This repository contains the complete engineering materials for SSTactical's sel
 * `ML/` contains the machine learning pipeline for visual object detection running on the MaixCam. This includes the trained YOLOv5 model, the inference script, training annotations, and configuration files.
 * `Models/` contains 3D printable STL files for custom mounts and brackets used in the vehicle construction.
 * `Photos/` contains documentation photographs of the team and the vehicle at various stages of development.
+* `Videos/` contains videos of the robot performing the open and challenge runs. 
 
 ## Hardware Components
 
