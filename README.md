@@ -59,7 +59,7 @@ This repository contains engineering materials of SSTactical's self-driven vehic
    1. Microcontroller -- EvolutionX1, ESP32S3 **(x1)**
    2. Motors -- EvoMotor300 **(x1)**
    3. Camera -- MaixCam **(x1)**
-   4. Distance Sensor -- Time of Flight, VL53LOX **(x3)**
+   4. Distance Sensor -- Time of Flight, VL53LOX **(x4)**
    5. Compass -- IMU, BNO055 **(x1)**
    6. I2C Multiplexor -- TCA9548A **(x1)**
    7. IO Multiiplexor -- SX1506 **(x1)**
