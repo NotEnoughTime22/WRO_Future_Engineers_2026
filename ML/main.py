@@ -39,7 +39,7 @@ while not app.need_exit():
     if len(objs) > 0 and report_on:
         body = encode_objs(objs)
         try:
-            # Send the byte payload to the target microcontroller over I2C
+            # Send the byte payload to the target microcontroller over I2Coo
             i2c_bus.writeto(TARGET_I2C_ADDR, body)
         except Exception as e:
             print(f"I2C Write Error: {e}")
