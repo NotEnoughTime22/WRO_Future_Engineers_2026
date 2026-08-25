@@ -10,14 +10,14 @@ This repository contains engineering materials of SSTactical's self-driven vehic
    * `Team` ----- contains one photo of the team (an official one with all team members)
    * `Vehicle` ----- contains 2 folders of the vehicle at different stages (from every side, from top and bottom)
        * `First Prototype` ----- contains 9 images of the first prototype chassis
-        - `Back side of first prototype chassis.jpeg` contains 1 photo of the back view of the first prototype chassis
-        - `Bottom side of unfinished first prototype.jpeg` contains 1 photo of the bottom view of the unfinished first prototype chassis
-        - `Comparison of first and second(Unfinished) chassis.jpeg` contains 1 photo of the comparision between the first and second prototype chassis
-        - `Front side of first prototype chassis.jpeg` contains 1 photo of the front view of the first prototype chassis
-        - `Left side of first prototype chassis.jpeg` contains 1 photo of the left view of the first prototype chassis
-        - `Right side of first prototype chassis.jpeg` contains 1 photo of the right view of the first prototype chassis
-        - `Right side of unfinished first prototype chassis.jpeg` contains 1 photo of the right view of the unfinished first prototype chassis
-        - `Top-right side of unfinished first prototype chassis.jpeg` contains 1 photo of the top-right view of the unfinished first prototype
+          - `Back side of first prototype chassis.jpeg` contains 1 photo of the back view of the first prototype chassis
+          - `Bottom side of unfinished first prototype.jpeg` contains 1 photo of the bottom view of the unfinished first prototype chassis
+          - `Comparison of first and second(Unfinished) chassis.jpeg` contains 1 photo of the comparision between the first and second prototype chassis
+          - `Front side of first prototype chassis.jpeg` contains 1 photo of the front view of the first prototype chassis
+          - `Left side of first prototype chassis.jpeg` contains 1 photo of the left view of the first prototype chassis
+          - `Right side of first prototype chassis.jpeg` contains 1 photo of the right view of the first prototype chassis
+          - `Right side of unfinished first prototype chassis.jpeg` contains 1 photo of the right view of the unfinished first prototype chassis
+          - `Top-right side of unfinished first prototype chassis.jpeg` contains 1 photo of the top-right view of the unfinished first prototype
   * `Schemes` contains several schematic diagrams in the form of JPEG, PNG or PDF of the electromechanical components illustrating all the elements (electronic components and motors) used in the vehicle and how they connect to each other.
    * `Microcontroller Wiring Diagram.png` contains a photo of our Microcontroller System Diagram.
    * `Overall System Wiring Diagram.png` contains a photo of our Overall System Wiring Diagram.
